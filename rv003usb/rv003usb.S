@@ -74,7 +74,6 @@ EXTI7_0_IRQHandler:
 	sw	a3, 12(sp)
 	sw	a4, 16(sp)
 	sw	s1, 28(sp)
-	sw	t0, 32(sp)  // XXX NOTE: This is actually unused register - remove some day?
 
 #if defined (RV003_ADD_EXTI_MASK) && defined (RV003_ADD_EXTI_HANDLER)
 	la a1, 0x40010414 //	R32_EXTI_INTFR
@@ -119,7 +118,7 @@ EXTI7_0_IRQHandler:
 syncout:
 	sw	s0, 24(sp)
 	li a2, 0
-	
+	sw	t0, 32(sp)  // XXX NOTE: This is actually unused register - remove some day?
 	sw	t1, 36(sp)
 	
 	// We are coarsely sync'd here.
